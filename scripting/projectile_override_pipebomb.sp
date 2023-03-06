@@ -1,6 +1,3 @@
-/**
- * Sourcemod 1.7 Plugin Template
- */
 #pragma semicolon 1
 #include <sourcemod>
 
@@ -17,6 +14,14 @@
 Handle g_SDKCallFirePipeBomb;
 Handle g_SDKCallGetProjectileFireSetup;
 Handle g_SDKCallInitGrenade;
+
+public Plugin myinfo = {
+	name = "[TF2] Custom Attribute: Projectile Override Pipebomb",
+	author = "Sandy",
+	description = "",
+	version = "1.0.0",
+	url = "https://github.com/M60TM/TF2-Sandy-CA"
+}
 
 public void OnPluginStart() {
 	Handle hGameConf = LoadGameConfigFile("tf2.cattr_pipebomb");

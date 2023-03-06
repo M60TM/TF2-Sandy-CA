@@ -9,6 +9,14 @@ Handle g_SDKCallGrenadeDetonade;
 
 Handle g_DHookVPhysicsCollision;
 
+public Plugin myinfo = {
+	name = "[TF2] Custom Attribute: Detonade on Touch",
+	author = "Sandy",
+	description = "",
+	version = "1.0.0",
+	url = "https://github.com/M60TM/TF2-Sandy-CA"
+}
+
 public void OnPluginStart()
 {
 	Handle hGameConf = LoadGameConfigFile("tf2.cattr_pipebomb");
@@ -37,33 +45,16 @@ public void OnEntityCreated(int iEntity, const char[] sClassname)
 }
 
 public MRESReturn Tags_OnProjectileTouch(int iProjectile)
-{   
-    int iWeapon = GetEntPropEnt(iProjectile, Prop_Send, "m_hOriginalLauncher");
-    
-    if (IsValidEntity(iWeapon))
+{
+	int iWeapon = GetEntPropEnt(iProjectile, Prop_Send, "m_hOriginalLauncher");
+	
+	if (IsValidEntity(iWeapon))
 	{
         if (TF2CustAttr_GetInt(iWeapon, "detonade on touch"))
 		{
             SDKCall(g_SDKCallGrenadeDetonade, EntIndexToEntRef(iProjectile));
 		}
 	}
-    
-    return MRES_Ignored;
-}
-
-stock bool IsValidClient(int client, bool replaycheck=true)
-{
-	if(client<=0 || client>MaxClients)
-		return false;
-
-	if(!IsClientInGame(client))
-		return false;
-
-	if(GetEntProp(client, Prop_Send, "m_bIsCoaching"))
-		return false;
-
-	if(replaycheck && (IsClientSourceTV(client) || IsClientReplay(client)))
-		return false;
-
-	return true;
+	
+	return MRES_Ignored;
 }

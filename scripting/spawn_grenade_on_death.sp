@@ -13,6 +13,14 @@
 Handle g_SDKCallFirePipeBomb;
 Handle g_SDKCallInitGrenade;
 
+public Plugin myinfo = {
+	name = "[TF2] Custom Attribute: Spawn Grenade on Death",
+	author = "Sandy",
+	description = "",
+	version = "1.0.0",
+	url = "https://github.com/M60TM/TF2-Sandy-CA"
+}
+
 public void OnPluginStart() {
     Handle hGameConf = LoadGameConfigFile("tf2.cattr_pipebomb");
     if (!hGameConf) {
