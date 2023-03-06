@@ -50,9 +50,9 @@ public MRESReturn Tags_OnProjectileTouch(int iProjectile)
 	
 	if (IsValidEntity(iWeapon))
 	{
-        if (TF2CustAttr_GetInt(iWeapon, "detonade on touch"))
+        	if (TF2CustAttr_GetInt(iWeapon, "detonade on touch"))
 		{
-            SDKCall(g_SDKCallGrenadeDetonade, EntIndexToEntRef(iProjectile));
+			SDKCall(g_SDKCallGrenadeDetonade, EntIndexToEntRef(iProjectile));
 		}
 	}
 	
