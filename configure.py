@@ -3,12 +3,14 @@
 # plugin names, relative to `scripting/`
 plugins = [
 	'melee_airblast.sp',
+	'minicrit_on_heal.sp',
 ]
 
 # files to copy to builddir, relative to root
 # plugin names from previous list will be copied automatically
 copy_files = [
 	'gamedata/Melee_Airblast.txt',
+	'gamedata/Shared_Healing.txt',
 ]
 
 # additional directories for sourcepawn include lookup

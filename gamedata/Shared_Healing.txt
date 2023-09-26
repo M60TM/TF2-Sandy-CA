@@ -1,0 +1,88 @@
+"Games"
+{
+	"tf"
+	{
+		"Functions"
+		{
+			"CTFPlayerShared::Heal()"
+			{
+				"signature"	"CTFPlayerShared::Heal()"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+				"arguments"
+				{
+					"pHealer"
+					{
+						"type"	"cbaseentity"
+					}
+					"flAmount"
+					{
+						"type"	"float"
+					}
+					"flOverhealBonus"
+					{
+						"type"	"float"
+					}
+					"flOverhealDecayMult"
+					{
+						"type"	"float"
+					}
+					"bDispenserHeal"
+					{
+						"type"	"bool"
+					}
+					"pHealScorer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CTFPlayerShared::StopHealing()"
+			{
+				"signature"	"CTFPlayerShared::StopHealing()"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+				"arguments"
+				{
+					"pHealer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CBaseEntity::UpdateOnRemove()"
+			{
+				"offset"		"CBaseEntity::UpdateOnRemove()"
+				"hooktype"		"entity"
+				"return"		"void"
+				"this"			"entity"
+			}
+		}
+		"Signatures"
+		{
+			"CTFPlayerShared::Heal()"
+			{
+				"library"	"server"
+				"linux"		"@_ZN15CTFPlayerShared4HealEP11CBaseEntityfffbP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x28\x53\x56\x8B\x75\x08\x0F\x57\xC0"
+			}
+			"CTFPlayerShared::StopHealing()"
+			{
+				// first call in block with xref "healtarget:alive"
+				"library"	"server"
+				"linux"		"@_ZN15CTFPlayerShared11StopHealingEP11CBaseEntity"
+				"windows"	"\x55\x8B\xEC\x51\x56\xFF\x75\x08\x8B\xF1\xE8\x2A\x2A\x2A\x2A\x8B\xC8"
+			}
+		}
+		"Offsets"
+		{
+			"CBaseEntity::UpdateOnRemove()"
+			{
+				"windows"	"110"
+				"linux"		"111"
+			}
+		}
+	}
+}
